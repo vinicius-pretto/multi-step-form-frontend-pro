@@ -1,0 +1,25 @@
+{
+  "name": "multi-step-form-frontend-pro",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.16"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.16"
+  },
+  "packageManager": "pnpm@8.12.1+sha512.6705ea1966adb6587053e6cfe6fddc377f81066228daf736c4490012f44f2ff1bf0c713bb8f3145fce0e3ef669c7c15f19a59ac157838951f234c17b81ca655d"
+}
