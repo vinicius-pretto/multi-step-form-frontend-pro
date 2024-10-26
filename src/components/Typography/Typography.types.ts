@@ -1,0 +1,37 @@
+import { ReactNode } from "react";
+
+export const typographyColors = {
+  dark: "dark",
+  lightGray: "lightGray",
+} as const;
+
+export const typographySizes = {
+  xs: "xs",
+  sm: "sm",
+  md: "md",
+  lg: "lg",
+  xl: "xl",
+} as const;
+
+export type TypographyColors =
+  (typeof typographyColors)[keyof typeof typographyColors];
+
+export type typographySizes =
+  (typeof typographySizes)[keyof typeof typographySizes];
+
+export type TypographyHtmlTags =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "p"
+  | "span";
+
+export type TypographyProps = {
+  children: ReactNode;
+  size: typographySizes;
+  color?: TypographyColors;
+  htmlTag?: TypographyHtmlTags;
+};
