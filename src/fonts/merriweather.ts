@@ -4,4 +4,5 @@ export const merriweather = Merriweather({
   subsets: ["latin"],
   display: "swap",
   weight: ["900"],
+  variable: "--font-merriweather",
 }).className;

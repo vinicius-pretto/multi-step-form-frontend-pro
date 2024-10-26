@@ -1,0 +1,4 @@
+:root {
+  --font-family-sans: var(--font-poppins), sans-serif;
+  --font-family-serif: var(--font-merriweather), serif;
+}
