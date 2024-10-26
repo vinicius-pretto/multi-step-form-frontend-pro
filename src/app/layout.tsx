@@ -1,6 +1,9 @@
+import { merriweather } from '@/fonts/merriweather';
+import { poppins } from "@/fonts/poppins";
 import type { Metadata } from "next";
-import "./globals.css";
+import "../styles/globals.css";
 
+const fonts = [merriweather, poppins].join(', ')
 
 export const metadata: Metadata = {
   title: "Multi-step Form - FrontendPro",
@@ -13,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={fonts}>
       <body>
         {children}
       </body>
