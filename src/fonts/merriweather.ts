@@ -1,8 +1,10 @@
 import { Merriweather } from "next/font/google";
 
-export const merriweather = Merriweather({
+const merriweatherFont = Merriweather({
   subsets: ["latin"],
   display: "swap",
   weight: ["900"],
   variable: "--font-merriweather",
-}).className;
+});
+
+export const merriweather = merriweatherFont.className;

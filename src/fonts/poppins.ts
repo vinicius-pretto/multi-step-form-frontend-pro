@@ -1,8 +1,10 @@
 import { Poppins } from "next/font/google";
 
-export const poppins = Poppins({
+const poppinsFont = Poppins({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "600"],
   variable: "--font-poppins",
-}).className;
+});
+
+export const poppins = poppinsFont.className;
