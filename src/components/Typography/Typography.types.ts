@@ -13,11 +13,19 @@ export const typographySizes = {
   xl: "xl",
 } as const;
 
+export const typographyFonts = {
+  serif: "serif",
+  sansSerif: "sans-serif",
+} as const;
+
 export type TypographyColors =
   (typeof typographyColors)[keyof typeof typographyColors];
 
 export type typographySizes =
   (typeof typographySizes)[keyof typeof typographySizes];
+
+export type TypographyFonts =
+  (typeof typographyFonts)[keyof typeof typographyFonts];
 
 export type TypographyHtmlTags =
   | "h1"
@@ -34,4 +42,5 @@ export type TypographyProps = {
   size: typographySizes;
   color?: TypographyColors;
   htmlTag?: TypographyHtmlTags;
+  font?: TypographyFonts;
 };

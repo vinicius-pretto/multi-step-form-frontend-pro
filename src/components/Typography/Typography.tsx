@@ -1,7 +1,10 @@
+import { merriweather } from '@/fonts/merriweather';
+import clsx from 'clsx';
 import styles from './Typography.module.css';
-import { TypographyProps } from './Typography.types';
+import { typographyFonts, TypographyProps } from './Typography.types';
 
-export const Typography = ({ children, htmlTag = 'h1', size, color = 'dark', ...rest }: TypographyProps) => {
+export const Typography = ({ children, htmlTag = 'h1', size, color = 'dark', font = 'sans-serif', ...rest }: TypographyProps) => {
   const Component = htmlTag;
-  return <Component className={styles.typography} data-size={size} data-color={color} {...rest}>{children}</Component>;
+  const fontFamily = font === typographyFonts.serif ? merriweather : undefined
+  return <Component className={clsx([styles.typography, fontFamily])} data-size={size} data-color={color} {...rest}>{children}</Component>;
 };

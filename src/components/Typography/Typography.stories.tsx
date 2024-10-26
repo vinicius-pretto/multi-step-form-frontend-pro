@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Typography } from "./Typography";
-import { typographyColors, TypographyProps, typographySizes } from "./Typography.types";
+import { typographyColors, typographyFonts, TypographyProps, typographySizes } from "./Typography.types";
 
 const meta: Meta<typeof Typography> = {
   component: Typography,
@@ -9,7 +9,8 @@ const meta: Meta<typeof Typography> = {
     children: 'Typography',
     htmlTag: 'h1',
     color: 'dark',
-    size: 'xl'
+    size: 'xl',
+    font: 'sans-serif'
   }
 } satisfies Meta<typeof Typography>;
 
@@ -48,4 +49,19 @@ const TypographySizes = (props: Pick<TypographyProps, 'htmlTag' | 'color'>) => {
 
 export const Sizes: Story = {
   render: (args) => <TypographySizes {...args} />
+}
+
+const TypographyFonts = (props: Pick<TypographyProps, 'htmlTag' | 'color' | 'size'>) => {
+  return (
+    <ul>
+      {Object.values(typographyFonts).map(font => (
+        <li key={font}>
+          <Typography {...props} size="md" color="dark" font={font}>Typography ({font})</Typography>
+        </li>
+      ))}
+    </ul>
+  )
+}
+export const Fonts: Story = {
+  render: (args) => <TypographyFonts {...args} />
 }
