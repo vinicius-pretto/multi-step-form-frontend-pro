@@ -4,6 +4,7 @@ html {
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  font-family: var(--font-family-sans);
 }
 
 *,
@@ -14,7 +15,8 @@ html {
 
 html, 
 body, 
-#__next {
+#__next,
+#storybook-root {
   height: 100%;
 }
 
