@@ -18,7 +18,10 @@
   padding-block: var(--spacing);
 }
 
-.cardFooter {
+.cardActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-2);
   border-top: 1px solid var(--divider-color);
   padding-block: var(--spacing);
 }

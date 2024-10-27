@@ -16,10 +16,10 @@ const CardBody = ({ className, children, ...rest }: CardProps) => {
   return <div className={clsx([styles.cardBody, className])} {...rest}>{children}</div>;
 }
 
-const CardFooter = ({ className, children, ...rest }: CardProps) => {
-  return <div className={clsx([styles.cardFooter, className])} {...rest}>{children}</div>;
+const CardActions = ({ className, children, ...rest }: CardProps) => {
+  return <div className={clsx([styles.cardActions, className])} {...rest}>{children}</div>;
 }
 
 Card.Header = CardHeader;
 Card.Body = CardBody;
-Card.Footer = CardFooter;
+Card.Actions = CardActions;
