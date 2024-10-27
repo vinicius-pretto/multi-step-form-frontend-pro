@@ -6,6 +6,7 @@
   --color-gray-300: #6B7280;
   --color-gray-900: #111827;
   --color-amber-100: #F3F3E3;
+  --color-white: #FFFFFF;
 
   /* Font Family */
   --font-family-sans: var(--font-poppins), sans-serif;
@@ -31,4 +32,10 @@
   --spacing-5: 1rem;
   --spacing-6: 1.5rem;
   --spacing-7: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-circle: 50%;
 }
