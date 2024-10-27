@@ -1,0 +1,24 @@
+.card {
+  --spacing: var(--spacing-7);
+  --divider-color: var(--color-gray-100);
+
+  background-color: var(--color-white);
+  padding-inline: var(--spacing);
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: 10px 10px 0 0 hsla(32 94 69 / 0.1);
+}
+
+.cardHeader {
+  border-bottom: 1px solid var(--divider-color);
+  padding-block: var(--spacing);
+}
+
+.cardBody {
+  padding-block: var(--spacing);
+}
+
+.cardFooter {
+  border-top: 1px solid var(--divider-color);
+  padding-block: var(--spacing);
+}
