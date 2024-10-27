@@ -37,10 +37,14 @@ export type TypographyHtmlTags =
   | "p"
   | "span";
 
+type TypographyAlign = "left" | "center" | "right" | "justify";
+
 export type TypographyProps = {
   children: ReactNode;
   size: typographySizes;
   color?: TypographyColors;
   htmlTag?: TypographyHtmlTags;
   font?: TypographyFonts;
+  align?: TypographyAlign;
+  className?: string;
 };

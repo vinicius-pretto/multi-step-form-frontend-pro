@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={fonts}>
-      <body>
+      <body className="bg-amber-100">
         {children}
       </body>
     </html>

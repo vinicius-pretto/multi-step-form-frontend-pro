@@ -61,3 +61,11 @@ a {
 img {
   max-width: 100%;
 }
+
+.bg-amber-100 {
+  background-color: var(--color-amber-100);
+}
+
+.desktop-viewport {
+  max-width: 50rem;
+}

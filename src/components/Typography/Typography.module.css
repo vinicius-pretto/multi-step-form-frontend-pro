@@ -27,3 +27,20 @@
 .typography[data-color="lightGray"] {
   color: var(--color-gray-300);
 }
+
+/* ============= colors ============= */
+.typography[data-align="left"] {
+  text-align: left;
+}
+
+.typography[data-align="center"] {
+  text-align: center;
+}
+
+.typography[data-align="justify"] {
+  text-align: justify;
+}
+
+.typography[data-align="right"] {
+  text-align: right;
+}
