@@ -1,4 +1,4 @@
-import { Typography } from "@/components/Typography";
+import { Typography } from "@/components/core/Typography";
 import styles from "./page.module.css";
 
 export default function Home() {
