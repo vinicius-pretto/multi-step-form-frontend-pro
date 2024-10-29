@@ -20,7 +20,7 @@ const meta: Meta<typeof FullName> = {
 export default meta;
 type Story = StoryObj<typeof FullName>;
 
-export const Default: Story = {};
+export const Overview: Story = {};
 
 export const HasPlaceholder: Story = {
   play: async ({ canvasElement }) => {

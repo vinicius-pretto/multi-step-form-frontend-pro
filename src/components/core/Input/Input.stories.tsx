@@ -15,7 +15,7 @@ const meta: Meta<typeof Input> = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-export const Default: Story = {};
+export const Overview: Story = {};
 
 export const Error: Story = {
   args: {

@@ -22,7 +22,7 @@ const meta: Meta<typeof Typography> = {
 export default meta;
 type Story = StoryObj<typeof Typography>;
 
-export const Default: Story = {};
+export const Overview: Story = {};
 
 const TypographyColorsStores = (props: Pick<TypographyProps, "htmlTag">) => {
   return (
