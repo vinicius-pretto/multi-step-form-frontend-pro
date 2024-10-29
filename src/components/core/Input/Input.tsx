@@ -27,6 +27,7 @@ const InputBase = (props: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
         className={styles.input}
         ref={ref}
         aria-describedby={errorId}
+        data-error={hasError}
         {...rest}
       />
       {hasError ? <p id={errorId} className={styles.error}>{error}</p> : null}
