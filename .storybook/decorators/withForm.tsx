@@ -1,17 +1,33 @@
-import React, { SyntheticEvent } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { z } from "zod";
 import { Button } from "../../src/components/core/Button";
 
-export const withForm = () => {
+export type WithFormProps = {
+  schema: z.Schema<any>;
+  defaultValues?: Record<string, any>;
+}
+
+export const withForm = ({ schema }: WithFormProps) => {
   return (Story: React.FunctionComponent) => {
-    const onSubmit = (event: SyntheticEvent) => {
-      event.preventDefault();
+    const formMethods = useForm({
+      mode: 'onChange',
+      shouldFocusError: true,
+      resolver: zodResolver(schema),
+    });
+
+    const onSubmit = (values: unknown) => {
+      console.log(values);
     }
 
     return (
-      <form noValidate onSubmit={onSubmit}>
-        <Story />
-        <Button type="submit">Submit</Button>
-      </form>
+      <FormProvider {...formMethods}>
+        <form noValidate onSubmit={formMethods.handleSubmit(onSubmit)}>
+          <Story />
+          <Button type="submit">Submit</Button>
+        </form>
+      </FormProvider>
     );
   }
 }

@@ -2,11 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from '@storybook/test';
 import { withForm } from '../../../../.storybook/decorators/withForm';
 
+import { z } from "zod";
 import { FullName } from "./FullName";
+import { FULL_NAME_MAX_LENGTH, fullName, fullNameErrorMessages } from "./FullName.schema";
+
+const schema = z.object({ fullName })
 
 const meta: Meta<typeof FullName> = {
   component: FullName,
-  decorators: [withForm()],
+  decorators: [withForm({ schema })],
 } satisfies Meta<typeof FullName>;
 
 export default meta;
@@ -36,14 +40,34 @@ export const Required: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const submitButton = canvas.getByRole('button', { name: /submit/i });
-    const requiredMessage = canvas.getByRole('textbox', {
+
+    expect(canvas.queryByRole('textbox', {
       name: 'Full Name',
       description: 'Required'
-    })
+    })).not.toBeInTheDocument()
 
     await userEvent.click(submitButton);
 
-    expect(requiredMessage).toBeInTheDocument();
+    expect(await canvas.findByRole('textbox', {
+      name: 'Full Name',
+      description: fullNameErrorMessages.required
+    })).toBeInTheDocument();
+  }
+}
+
+export const MaxLength: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox', { name: /Full Name/i });
+
+    await userEvent.type(input, 'a'.repeat(FULL_NAME_MAX_LENGTH + 1));
+
+    expect(
+      canvas.getByRole('textbox', {
+        name: /Full Name/i,
+        description: fullNameErrorMessages.maxLength
+      })
+    ).toBeInTheDocument();
   }
 }
 
