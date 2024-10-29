@@ -1,4 +1,6 @@
 import { Input } from "@/components/core/Input";
+import { formatPhoneNumber } from "@/utils/formatPhoneNumber";
+import { ChangeEvent } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 export const Phone = () => {
@@ -9,6 +11,11 @@ export const Phone = () => {
       name="phone"
       control={control}
       render={({ field, fieldState }) => {
+        const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+          event.target.value = formatPhoneNumber(event.target.value);
+          field.onChange(event);
+        };
+
         return (
           <Input
             type="text"
@@ -17,13 +24,14 @@ export const Phone = () => {
             required
             name={field.name}
             value={field.value}
-            onChange={field.onChange}
+            onChange={onChange}
             onBlur={field.onBlur}
             ref={field.ref}
             error={fieldState.error?.message}
+            maxLength={14}
           />
-        )
+        );
       }}
     />
-  )
+  );
 };
