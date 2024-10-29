@@ -25,7 +25,16 @@ export const withForm = ({ schema }: WithFormProps) => {
       <FormProvider {...formMethods}>
         <form noValidate onSubmit={formMethods.handleSubmit(onSubmit)}>
           <Story />
-          <Button type="submit">Submit</Button>
+          <Button
+            type="submit"
+            style={{
+              display: 'block',
+              marginInlineStart: 'auto',
+              marginBlockStart: '2rem'
+            }}
+          >
+            Submit
+          </Button>
         </form>
       </FormProvider>
     );
