@@ -41,7 +41,7 @@ export const Required: Story = {
       description: 'Required'
     })
 
-    userEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     expect(requiredMessage).toBeInTheDocument();
   }
@@ -52,8 +52,8 @@ export const Format: Story = {
     const canvas = within(canvasElement);
     const input = canvas.getByRole('textbox', { name: /Full Name/i });
 
-    userEvent.type(input, 'john doe');
+    await userEvent.type(input, 'john doe');
 
-    expect(input).toHaveValue('John Doe');
+    expect(canvas.getByRole('textbox', { name: /Full Name/i, })).toHaveValue('John Doe');
   }
 }
