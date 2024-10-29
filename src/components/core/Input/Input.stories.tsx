@@ -5,20 +5,20 @@ import { Input } from "./Input";
 const meta: Meta<typeof Input> = {
   component: Input,
   args: {
-    type: 'text',
-    label: 'Input',
-    placeholder: 'Placeholder',
+    type: "text",
+    label: "Input",
+    placeholder: "Placeholder",
     required: true,
-  }
+  },
 } satisfies Meta<typeof Input>;
 
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const Error: Story = {
   args: {
-    error: 'Required',
-  }
-}
+    error: "Required",
+  },
+};

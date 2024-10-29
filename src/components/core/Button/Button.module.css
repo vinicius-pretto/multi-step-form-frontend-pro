@@ -15,7 +15,7 @@
 }
 
 .button:hover {
-  background-color: rgb(from var(--bg-color) r g b / .9);
+  background-color: rgb(from var(--bg-color) r g b / 0.9);
 }
 
 .button[data-variant="outlined"] {

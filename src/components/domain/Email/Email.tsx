@@ -2,7 +2,7 @@ import { Input } from "@/components/core/Input";
 import { Controller, useFormContext } from "react-hook-form";
 
 export const Email = () => {
-  const { control } = useFormContext()
+  const { control } = useFormContext();
 
   return (
     <Controller
@@ -23,5 +23,5 @@ export const Email = () => {
         />
       )}
     />
-  )
+  );
 };

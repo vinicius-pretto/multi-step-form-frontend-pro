@@ -15,18 +15,19 @@ const meta: Meta<typeof Card> = {
             Personal Information
           </Typography>
           <Typography htmlTag="p" size="sm">
-            Please provide your personal details so we can get to know you better.
+            Please provide your personal details so we can get to know you
+            better.
           </Typography>
         </Card.Body>
         <Card.Actions>
           <Button>Next Step</Button>
         </Card.Actions>
       </Card>
-    )
-  }
+    );
+  },
 } satisfies Meta<typeof Card>;
 
 export default meta;
 type Story = StoryObj<typeof Card>;
 
-export const Default: Story = {}
+export const Default: Story = {};

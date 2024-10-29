@@ -1,13 +1,13 @@
 :root {
   /* Color */
-  --color-primary: #FC6C4C;
-  --color-gray-100: #E5E7EB;
-  --color-gray-200: #9CA3AF;
-  --color-gray-300: #6B7280;
+  --color-primary: #fc6c4c;
+  --color-gray-100: #e5e7eb;
+  --color-gray-200: #9ca3af;
+  --color-gray-300: #6b7280;
   --color-gray-900: #111827;
-  --color-amber-100: #F3F3E3;
-  --color-white: #FFFFFF;
-  --color-red-600: #DC2626;
+  --color-amber-100: #f3f3e3;
+  --color-white: #ffffff;
+  --color-red-600: #dc2626;
 
   /* Font Family */
   --font-family-sans: var(--font-poppins), sans-serif;

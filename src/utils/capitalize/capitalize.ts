@@ -8,7 +8,7 @@ export const capitalize = (text: string) => {
     .map(
       (word) =>
         word.charAt(FIRST_LETTER).toUpperCase() +
-        word.slice(WORD_WITHOUT_FIRST_LETTER)
+        word.slice(WORD_WITHOUT_FIRST_LETTER),
     )
     .join(BY_BLANK_SPACE);
 };

@@ -15,8 +15,8 @@ export default function Home() {
           htmlTag="p"
           className={styles.textMaxWidth}
         >
-          To join our community and participate in frontend challenges.
-          Please fill out the following form.
+          To join our community and participate in frontend challenges. Please
+          fill out the following form.
         </Typography>
       </header>
     </div>

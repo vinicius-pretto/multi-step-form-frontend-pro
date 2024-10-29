@@ -1,4 +1,4 @@
-@import url('./design-tokens.css');
+@import url("./design-tokens.css");
 
 :root {
   --outline-color: var(--color-primary);
@@ -17,8 +17,8 @@ html {
   box-sizing: inherit;
 }
 
-html, 
-body, 
+html,
+body,
 #__next,
 #storybook-root {
   height: 100%;

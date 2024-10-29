@@ -1,9 +1,9 @@
-import { merriweather } from '@/fonts/merriweather';
+import { merriweather } from "@/fonts/merriweather";
 import { poppins } from "@/fonts/poppins";
 import type { Metadata } from "next";
 import "../styles/globals.css";
 
-const fonts = [merriweather, poppins].join(', ')
+const fonts = [merriweather, poppins].join(", ");
 
 export const metadata: Metadata = {
   title: "Multi-step Form - FrontendPro",
@@ -17,9 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={fonts}>
-      <body className="bg-amber-100">
-        {children}
-      </body>
+      <body className="bg-amber-100">{children}</body>
     </html>
   );
 }

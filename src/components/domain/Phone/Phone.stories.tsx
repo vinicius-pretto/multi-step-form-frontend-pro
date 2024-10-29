@@ -45,7 +45,7 @@ export const Required: Story = {
       canvas.queryByRole("textbox", {
         name: /Phone Number/i,
         description: "Required",
-      })
+      }),
     ).not.toBeInTheDocument();
 
     await userEvent.click(submitButton);
@@ -54,7 +54,7 @@ export const Required: Story = {
       await canvas.findByRole("textbox", {
         name: /Phone Number/i,
         description: "Required",
-      })
+      }),
     ).toBeInTheDocument();
   },
 };
@@ -65,11 +65,11 @@ export const Format: Story = {
 
     await userEvent.type(
       canvas.getByRole("textbox", { name: /Phone Number/i }),
-      "abc21522222222222222xyz"
+      "abc21522222222222222xyz",
     );
 
     expect(
-      await canvas.findByRole("textbox", { name: /Phone Number/i })
+      await canvas.findByRole("textbox", { name: /Phone Number/i }),
     ).toHaveValue("(215) 222-2222");
   },
 };

@@ -14,7 +14,7 @@ export const FullName = () => {
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
           event.target.value = capitalize(event.target.value);
           field.onChange(event);
-        }
+        };
 
         return (
           <Input
@@ -30,8 +30,8 @@ export const FullName = () => {
             ref={field.ref}
             error={fieldState.error?.message}
           />
-        )
+        );
       }}
     />
-  )
+  );
 };

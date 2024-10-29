@@ -1,7 +1,7 @@
-import { ComponentPropsWithRef, ForwardedRef, forwardRef, useId } from 'react';
-import styles from './Input.module.css';
+import { ComponentPropsWithRef, ForwardedRef, forwardRef, useId } from "react";
+import styles from "./Input.module.css";
 
-export type InputProps = ComponentPropsWithRef<'input'> & {
+export type InputProps = ComponentPropsWithRef<"input"> & {
   label: string;
   required?: boolean;
   error?: string;
@@ -11,7 +11,7 @@ const InputBase = (props: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
   const { label, required, type, error, ...rest } = props;
   const id = useId();
   const errorId = useId();
-  const requiredText = required ? '(required)' : '';
+  const requiredText = required ? "(required)" : "";
   const hasError = Boolean(error);
 
   return (
@@ -30,7 +30,11 @@ const InputBase = (props: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
         data-error={hasError}
         {...rest}
       />
-      {hasError ? <p id={errorId} className={styles.error}>{error}</p> : null}
+      {hasError ? (
+        <p id={errorId} className={styles.error}>
+          {error}
+        </p>
+      ) : null}
     </div>
   );
 };
