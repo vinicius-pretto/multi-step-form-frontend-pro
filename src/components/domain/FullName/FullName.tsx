@@ -11,7 +11,6 @@ export const FullName = () => {
       name="fullName"
       control={control}
       render={({ field, fieldState }) => {
-        console.log('fieldState.error?.message', fieldState)
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
           event.target.value = capitalize(event.target.value);
           field.onChange(event);
