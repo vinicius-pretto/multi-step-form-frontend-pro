@@ -28,6 +28,7 @@ const InputBase = (props: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
         ref={ref}
         aria-describedby={errorId}
         data-error={hasError}
+        aria-invalid={hasError}
         {...rest}
       />
       {hasError ? (
