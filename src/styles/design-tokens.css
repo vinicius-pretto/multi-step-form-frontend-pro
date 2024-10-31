@@ -2,6 +2,7 @@
   /* Color */
   --color-primary: #fc6c4c;
   --color-gray-100: #e5e7eb;
+  --color-gray-150: #D1D5DB;
   --color-gray-200: #9ca3af;
   --color-gray-300: #6b7280;
   --color-gray-900: #111827;
@@ -22,6 +23,7 @@
 
   /* Font Weight */
   --font-weight-regular: 400;
+  --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-black: 900;
 
@@ -33,6 +35,7 @@
   --spacing-5: 1rem;
   --spacing-6: 1.5rem;
   --spacing-7: 2rem;
+  --spacing-8: 2.5rem;
 
   /* Border Radius */
   --radius-sm: 0.25rem;
