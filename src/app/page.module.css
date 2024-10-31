@@ -9,3 +9,20 @@
 .textMaxWidth {
   max-width: 50ch;
 }
+
+.main {
+  max-width: 40rem;
+  margin-block: var(--spacing-7);
+}
+
+.description {
+  margin-block-start: var(--spacing-2);
+  margin-block-end: var(--spacing-6);
+}
+
+.formGroup {
+  display: grid;
+  gap: var(--spacing-8);
+  grid-template-columns: repeat(2, 1fr);
+  margin-block-end: var(--spacing-6);
+}
