@@ -1,7 +1,12 @@
 import { merriweather } from "@/fonts/merriweather";
 import clsx from "clsx";
 import styles from "./Typography.module.css";
-import { typographyFonts, TypographyProps } from "./Typography.types";
+import {
+  typographyColors,
+  typographyFonts,
+  TypographyProps,
+  typographyWeights,
+} from "./Typography.types";
 
 export const Typography = (props: TypographyProps) => {
   const {
@@ -9,9 +14,10 @@ export const Typography = (props: TypographyProps) => {
     size,
     className,
     htmlTag = "h1",
-    color = "dark",
-    font = "sans-serif",
+    color = typographyColors.dark,
+    font = typographyFonts.sansSerif,
     align = "left",
+    weight = typographyWeights.regular,
     ...rest
   } = props;
   const Component = htmlTag;
@@ -22,6 +28,7 @@ export const Typography = (props: TypographyProps) => {
       data-size={size}
       data-color={color}
       data-align={align}
+      data-weight={weight}
       className={clsx([styles.typography, fontFamily, className])}
       {...rest}
     >

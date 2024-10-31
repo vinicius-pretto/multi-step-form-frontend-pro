@@ -18,6 +18,13 @@ export const typographyFonts = {
   sansSerif: "sans-serif",
 } as const;
 
+export const typographyWeights = {
+  regular: "regular",
+  medium: "medium",
+  semibold: "semibold",
+  black: "black",
+} as const;
+
 export type TypographyColors =
   (typeof typographyColors)[keyof typeof typographyColors];
 
@@ -26,6 +33,9 @@ export type typographySizes =
 
 export type TypographyFonts =
   (typeof typographyFonts)[keyof typeof typographyFonts];
+
+export type TypographyWeights =
+  (typeof typographyWeights)[keyof typeof typographyWeights];
 
 export type TypographyHtmlTags =
   | "h1"
@@ -47,4 +57,5 @@ export type TypographyProps = {
   font?: TypographyFonts;
   align?: TypographyAlign;
   className?: string;
+  weight?: TypographyWeights;
 };

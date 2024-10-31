@@ -6,6 +6,7 @@ import {
   typographyFonts,
   TypographyProps,
   typographySizes,
+  typographyWeights,
 } from "./Typography.types";
 
 const meta: Meta<typeof Typography> = {
@@ -75,6 +76,27 @@ const TypographyFonts = (
     </ul>
   );
 };
+
 export const Fonts: Story = {
   render: (args) => <TypographyFonts {...args} />,
+};
+
+const TypographyWeights = (
+  props: Pick<TypographyProps, "htmlTag" | "color" | "size" | "weight">,
+) => {
+  return (
+    <ul>
+      {Object.values(typographyWeights).map((weight) => (
+        <li key={weight}>
+          <Typography {...props} size="md" color="dark" weight={weight}>
+            Typography ({weight})
+          </Typography>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export const Weights: Story = {
+  render: (args) => <TypographyWeights {...args} />,
 };

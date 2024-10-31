@@ -44,3 +44,20 @@
 .typography[data-align="right"] {
   text-align: right;
 }
+
+/* ============= weights ============= */
+.typography[data-weight="regular"] {
+  font-weight: var(--font-weight-regular);
+}
+
+.typography[data-weight="medium"] {
+  font-weight: var(--font-weight-medium);
+}
+
+.typography[data-weight="semibold"] {
+  font-weight: var(--font-weight-semibold);
+}
+
+.typography[data-weight="black"] {
+  font-weight: var(--font-weight-black);
+}
