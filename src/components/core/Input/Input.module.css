@@ -18,6 +18,7 @@
   padding-inline: var(--spacing-3);
   min-height: 2.5rem;
   border-radius: var(--radius-md);
+  border-color: var(--color-gray-150);
 }
 
 .input[data-error="true"] {
