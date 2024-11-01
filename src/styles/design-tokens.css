@@ -42,4 +42,5 @@
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-circle: 50%;
+  --radius-full: 9999px;
 }
