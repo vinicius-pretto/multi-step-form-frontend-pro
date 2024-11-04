@@ -1,40 +1,15 @@
 import { ComponentPropsWithoutRef } from "react";
 import styles from "./Steppers.module.css";
+import { Step } from "./components/Step";
 
-export type SteppersProps = ComponentPropsWithoutRef<"div"> & {
-  ariaLabel: string;
-};
+export type SteppersProps = ComponentPropsWithoutRef<"div">;
 
-export const Steppers = ({ ariaLabel }: SteppersProps) => {
+export const Steppers = ({ children, ...rest }: SteppersProps) => {
   return (
-    <div role="tablist" className={styles.steppers} aria-label={ariaLabel}>
-      <Step id="step1" active ariaLabel="Personal Info" />
-      <Step id="step2" ariaLabel="Skill Level" />
-      <Step id="step3" ariaLabel="Challenge Preference" />
-      <Step id="step4" ariaLabel="Review and Confirm" />
+    <div role="tablist" className={styles.steppers} {...rest}>
+      {children}
     </div>
   );
 };
 
-export type StepProps = {
-  id: string;
-  ariaLabel: string;
-  active?: boolean;
-};
-
-const Step = ({ id, ariaLabel, active }: StepProps) => {
-  return (
-    <div
-      role="tab"
-      aria-selected={active}
-      tabIndex={0}
-      id={id}
-      aria-labelledby="personalInfo"
-      className={styles.step}
-    >
-      <span hidden id="personalInfo">
-        {ariaLabel}
-      </span>
-    </div>
-  );
-};
+Steppers.Step = Step;

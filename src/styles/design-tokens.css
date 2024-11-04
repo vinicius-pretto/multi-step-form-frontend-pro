@@ -43,4 +43,6 @@
   --radius-lg: 1rem;
   --radius-circle: 50%;
   --radius-full: 9999px;
+
+  --outline-offset: 0.25rem;
 }
