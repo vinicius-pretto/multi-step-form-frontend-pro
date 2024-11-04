@@ -19,6 +19,7 @@
   margin-right: calc(var(--size) + var(--separator-width));
   cursor: pointer;
   outline-offset: var(--outline-offset);
+  border: none;
 }
 
 .step::before {

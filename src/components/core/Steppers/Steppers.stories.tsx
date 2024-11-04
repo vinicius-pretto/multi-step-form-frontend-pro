@@ -10,12 +10,21 @@ export default meta;
 type Story = StoryObj<typeof Steppers>;
 
 const SteppersPreview = () => {
+  const handleClick = (title: string) => {
+    console.log(`Clicked on ${title}`);
+  };
+
   return (
     <Steppers aria-label="Join our Community of Developers">
-      <Steppers.Step title="Personal Info" active completed />
-      <Steppers.Step title="Skill Level" completed />
-      <Steppers.Step title="Challenge Preference" />
-      <Steppers.Step title="Review and Confirm" />
+      <Steppers.Step
+        title="Personal Info"
+        onClick={handleClick}
+        active
+        completed
+      />
+      <Steppers.Step title="Skill Level" onClick={handleClick} completed />
+      <Steppers.Step title="Challenge Preference" onClick={handleClick} />
+      <Steppers.Step title="Review and Confirm" onClick={handleClick} />
     </Steppers>
   );
 };

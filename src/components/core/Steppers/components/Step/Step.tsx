@@ -1,18 +1,23 @@
 import { ComponentPropsWithRef, ForwardedRef, forwardRef, useId } from "react";
 import styles from "./Step.module.css";
 
-export type StepProps = ComponentPropsWithRef<"div"> & {
+export type StepProps = Omit<ComponentPropsWithRef<"button">, "onClick"> & {
   title: string;
   active?: boolean;
   completed?: boolean;
+  onClick: (title: string) => void;
 };
 
-const StepBase = (props: StepProps, ref: ForwardedRef<HTMLDivElement>) => {
-  const { title, active, completed, ...rest } = props;
+const StepBase = (props: StepProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  const { title, active, completed, onClick, ...rest } = props;
   const id = useId();
 
+  const handleClick = () => {
+    onClick(title);
+  };
+
   return (
-    <div
+    <button
       ref={ref}
       role="tab"
       tabIndex={0}
@@ -20,12 +25,13 @@ const StepBase = (props: StepProps, ref: ForwardedRef<HTMLDivElement>) => {
       aria-selected={active === true}
       aria-labelledby={id}
       data-completed={completed}
+      onClick={handleClick}
       {...rest}
     >
       <span hidden id={id}>
         {title}
       </span>
-    </div>
+    </button>
   );
 };
 
