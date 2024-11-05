@@ -73,3 +73,7 @@ img {
 .desktop-viewport {
   max-width: 50rem;
 }
+
+.px-5 {
+  padding-inline: var(--spacing-5);
+}

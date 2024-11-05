@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/core/Button";
 import { Card } from "@/components/core/Card";
+import { Steppers } from "@/components/core/Steppers";
 import { Typography } from "@/components/core/Typography";
 import { Email } from "@/components/domain/Email";
 import { email } from "@/components/domain/Email/Email.schema";
@@ -23,6 +24,25 @@ const schema = z.object({
   portifolioLink,
 });
 
+const joinCommunitySteps = [
+  {
+    id: "d49faff1-2ff7-4dde-bfdc-189e73340230",
+    name: "Personal Information",
+  },
+  {
+    id: "65aca04d-c4e9-44f5-9bcd-47d15721d106",
+    name: "Skill Level",
+  },
+  {
+    id: "d9d609b9-3774-4ccd-b391-37f0ef6e029b",
+    name: "Challenge Preference",
+  },
+  {
+    id: "bcce83ed-a702-47c0-aeb6-83a79337c7eb",
+    name: "Review and Confirm",
+  },
+];
+
 export default function Home() {
   const formMethods = useForm({
     mode: "onChange",
@@ -32,6 +52,10 @@ export default function Home() {
 
   const onSubmit = (values: unknown) => {
     console.log(values);
+  };
+
+  const handleStepClick = (stepName: string) => {
+    console.log(`${stepName} clicked`);
   };
 
   return (
@@ -53,7 +77,17 @@ export default function Home() {
       </header>
       <main className={styles.main}>
         <Card>
-          <Card.Header>Progress Bar</Card.Header>
+          <Card.Header className="px-5">
+            <Steppers>
+              {joinCommunitySteps.map((step) => (
+                <Steppers.Step
+                  key={step.id}
+                  title={step.name}
+                  onClick={handleStepClick}
+                />
+              ))}
+            </Steppers>
+          </Card.Header>
           <Card.Body>
             <Typography htmlTag="h1" size="lg" weight="medium">
               Personal Information
