@@ -1,11 +1,13 @@
 import { ComponentPropsWithRef, ForwardedRef, forwardRef, useId } from "react";
 import styles from "./Step.module.css";
 
+export type StepOnClickFn = (title: string) => void;
+
 export type StepProps = Omit<ComponentPropsWithRef<"button">, "onClick"> & {
   title: string;
   active?: boolean;
   completed?: boolean;
-  onClick: (title: string) => void;
+  onClick: StepOnClickFn;
 };
 
 const StepBase = (props: StepProps, ref: ForwardedRef<HTMLButtonElement>) => {

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "d49faff1-2ff7-4dde-bfdc-189e73340230",
+    "name": "Personal Information"
+  },
+  {
+    "id": "65aca04d-c4e9-44f5-9bcd-47d15721d106",
+    "name": "Skill Level"
+  },
+  {
+    "id": "d9d609b9-3774-4ccd-b391-37f0ef6e029b",
+    "name": "Challenge Preference"
+  },
+  {
+    "id": "bcce83ed-a702-47c0-aeb6-83a79337c7eb",
+    "name": "Review and Confirm"
+  }
+]
