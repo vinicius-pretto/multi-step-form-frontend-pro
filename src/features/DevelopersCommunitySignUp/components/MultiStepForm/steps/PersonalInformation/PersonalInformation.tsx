@@ -10,6 +10,7 @@ import { portifolioLink } from "@/components/domain/PortifolioLink/PortifolioLin
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
+import { useMultiStepForm } from "../../providers/MultiStepFormProvider";
 import styles from "./PersonalInformation.module.css";
 
 const personalInformationSchema = z.object({
@@ -20,6 +21,7 @@ const personalInformationSchema = z.object({
 });
 
 export const PersonalInformation = () => {
+  const { nextStep } = useMultiStepForm();
   const formMethods = useForm({
     mode: "onChange",
     shouldFocusError: true,
@@ -28,6 +30,10 @@ export const PersonalInformation = () => {
 
   const onSubmit = (values: unknown) => {
     console.log(values);
+    if (!formMethods.formState.isValid) {
+      return;
+    }
+    nextStep();
   };
 
   return (

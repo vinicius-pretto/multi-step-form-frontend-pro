@@ -6,7 +6,7 @@ export const PortifolioLink = () => {
 
   return (
     <Controller
-      name="profileLink"
+      name="portifolioLink"
       control={control}
       render={({ field, fieldState }) => {
         const value = field.value === undefined ? "" : field.value;
