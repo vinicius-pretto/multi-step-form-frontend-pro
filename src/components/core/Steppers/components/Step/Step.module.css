@@ -3,6 +3,7 @@
   --separator-width: 6.25rem;
   --separator-height: 0.375rem;
   --separator-spacing: 1.125rem;
+  --separator-color: var(--color-gray-100);
 
   position: relative;
   display: flex;
@@ -20,6 +21,11 @@
   cursor: pointer;
   outline-offset: var(--outline-offset);
   border: none;
+  transition: background-color 200ms ease;
+}
+
+.step:hover {
+  background-color: var(--color-gray-200);
 }
 
 .step::before {
@@ -34,11 +40,16 @@
   left: calc(var(--size) + var(--separator-spacing));
   height: var(--separator-height);
   width: var(--separator-width);
-  background-color: inherit;
+  background-color: var(--separator-color);
   border-radius: var(--radius-full);
 }
 
-.step[data-completed="true"] {
+.step[data-completed="true"],
+.step[aria-selected="true"] {
   background-color: var(--color-primary);
   color: var(--color-white);
+}
+
+.step[data-completed="true"] {
+  --separator-color: var(--color-primary);
 }
