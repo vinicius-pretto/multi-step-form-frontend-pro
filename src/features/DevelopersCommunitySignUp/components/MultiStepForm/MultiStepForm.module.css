@@ -1,6 +1,0 @@
-.formGroup {
-  display: grid;
-  gap: var(--spacing-8);
-  grid-template-columns: repeat(2, 1fr);
-  margin-block-end: var(--spacing-6);
-}

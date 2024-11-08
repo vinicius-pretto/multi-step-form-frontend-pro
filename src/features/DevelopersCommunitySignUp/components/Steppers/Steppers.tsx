@@ -1,18 +1,19 @@
 import { Steppers as SteppersBase } from "@/components/core/Steppers";
-import { StepOnClickFn } from "@/components/core/Steppers/components/Step";
+import { useMultiStepForm } from "../../providers/MultiStepFormProvider";
 import steps from "./steps.json";
 
-export type DevelopersCommunitySignUpStepperProps = {
-  onClick: StepOnClickFn;
-};
+export const Steppers = () => {
+  const { changeStep, step: currentStep } = useMultiStepForm();
 
-export const Steppers = ({
-  onClick,
-}: DevelopersCommunitySignUpStepperProps) => {
   return (
     <SteppersBase>
       {steps.map((step) => (
-        <SteppersBase.Step key={step.id} title={step.name} onClick={onClick} />
+        <SteppersBase.Step
+          key={step.id}
+          title={step.name}
+          onClick={() => changeStep(step.id)}
+          aria-selected={step.id === currentStep}
+        />
       ))}
     </SteppersBase>
   );
