@@ -1,18 +1,22 @@
 [
   {
     "id": "personal-information",
-    "name": "Personal Information"
+    "name": "Personal Information",
+    "completed": false
   },
   {
     "id": "skill-level",
-    "name": "Skill Level"
+    "name": "Skill Level",
+    "completed": false
   },
   {
     "id": "challenge-preference",
-    "name": "Challenge Preference"
+    "name": "Challenge Preference",
+    "completed": false
   },
   {
     "id": "review-and-confirm",
-    "name": "Review and Confirm"
+    "name": "Review and Confirm",
+    "completed": false
   }
 ]

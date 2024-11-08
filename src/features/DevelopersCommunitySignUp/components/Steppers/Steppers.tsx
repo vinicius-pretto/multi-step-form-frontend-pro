@@ -1,9 +1,8 @@
 import { Steppers as SteppersBase } from "@/components/core/Steppers";
 import { useMultiStepForm } from "../MultiStepForm/providers/MultiStepFormProvider";
-import steps from "./steps.json";
 
 export const Steppers = () => {
-  const { changeStep, step: currentStep } = useMultiStepForm();
+  const { changeStep, step: currentStep, steps } = useMultiStepForm();
 
   return (
     <SteppersBase>
@@ -12,7 +11,8 @@ export const Steppers = () => {
           key={step.id}
           title={step.name}
           onClick={() => changeStep(step.id)}
-          aria-selected={step.id === currentStep}
+          active={step.id === currentStep}
+          completed={step.completed}
         />
       ))}
     </SteppersBase>

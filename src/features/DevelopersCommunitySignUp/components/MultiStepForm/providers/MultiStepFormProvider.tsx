@@ -4,6 +4,8 @@ export type MultiStepFormContextProps = {
   step: string;
   changeStep: (step: string) => void;
   nextStep: () => void;
+  steps: Step[];
+  markStepAsCompleted: (stepId: string) => void;
 };
 
 const MultiStepFormContext = createContext<
@@ -13,6 +15,7 @@ const MultiStepFormContext = createContext<
 type Step = {
   id: string;
   name: string;
+  completed: boolean;
 };
 
 type MultiStepFormProviderProps = {
@@ -24,9 +27,21 @@ type MultiStepFormProviderProps = {
 export const MultiStepFormProvider = ({
   children,
   initialStep,
-  steps,
+  steps: initialSteps,
 }: MultiStepFormProviderProps) => {
   const [step, setStep] = useState(() => initialStep);
+  const [steps, setSteps] = useState<Step[]>(() => initialSteps);
+
+  const markStepAsCompleted = (stepId: string) => {
+    setSteps((prevSteps) =>
+      prevSteps.map((step) => {
+        if (step.id === stepId) {
+          return { ...step, completed: true };
+        }
+        return step;
+      }),
+    );
+  };
 
   const changeStep = (nextStep: string) => {
     setStep(nextStep);
@@ -45,12 +60,14 @@ export const MultiStepFormProvider = ({
     if (!nextStep) {
       return;
     }
-
+    markStepAsCompleted(step);
     changeStep(nextStep.id);
   };
 
   return (
-    <MultiStepFormContext.Provider value={{ changeStep, nextStep, step }}>
+    <MultiStepFormContext.Provider
+      value={{ changeStep, nextStep, step, steps, markStepAsCompleted }}
+    >
       {children}
     </MultiStepFormContext.Provider>
   );
