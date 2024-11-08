@@ -5,8 +5,8 @@ import { Card } from "@/components/core/Card";
 import styles from "./DevelopersCommunitySignUp.module.css";
 import { Header } from "./components/Header";
 import { MultiStepForm } from "./components/MultiStepForm";
+import { MultiStepFormProvider } from "./components/MultiStepForm/providers/MultiStepFormProvider";
 import { Steppers } from "./components/Steppers";
-import { MultiStepFormProvider } from "./providers/MultiStepFormProvider";
 
 export const DevelopersCommunitySignUp = () => {
   return (

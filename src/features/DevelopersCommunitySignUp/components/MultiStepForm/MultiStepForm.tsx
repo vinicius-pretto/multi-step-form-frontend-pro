@@ -1,4 +1,4 @@
-import { useMultiStepForm } from "../../providers/MultiStepFormProvider";
+import { useMultiStepForm } from "./providers/MultiStepFormProvider";
 import { ChallengePreference } from "./steps/ChallengePreference";
 import { PersonalInformation } from "./steps/PersonalInformation";
 import { ReviewAndConfirm } from "./steps/ReviewAndConfirm";

@@ -1,5 +1,5 @@
 import { Steppers as SteppersBase } from "@/components/core/Steppers";
-import { useMultiStepForm } from "../../providers/MultiStepFormProvider";
+import { useMultiStepForm } from "../MultiStepForm/providers/MultiStepFormProvider";
 import steps from "./steps.json";
 
 export const Steppers = () => {
