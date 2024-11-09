@@ -13,6 +13,7 @@ export const Steppers = () => {
           onClick={() => changeStep(step.id)}
           active={step.id === currentStep}
           completed={step.completed}
+          disabled={!step.enabled}
         />
       ))}
     </SteppersBase>

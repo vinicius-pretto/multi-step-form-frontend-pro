@@ -24,7 +24,7 @@
   transition: background-color 200ms ease;
 }
 
-.step:hover {
+.step:hover:not(:disabled) {
   background-color: var(--color-gray-200);
 }
 
@@ -48,6 +48,15 @@
 .step[aria-selected="true"] {
   background-color: var(--color-primary);
   color: var(--color-white);
+}
+
+.step[data-completed="true"]:hover,
+.step[aria-selected="true"]:hover {
+  background-color: rgb(from var(--color-primary) r g b / 0.8);
+}
+
+.step:disabled {
+  cursor: not-allowed;
 }
 
 .step[data-completed="true"] {
