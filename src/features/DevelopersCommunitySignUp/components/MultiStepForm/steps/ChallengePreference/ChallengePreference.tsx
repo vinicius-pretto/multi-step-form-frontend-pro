@@ -1,3 +1,3 @@
 export const ChallengePreference = () => {
-  return <div>ChallengePreference</div>;
+  return <h2>Challenge Preference</h2>;
 };

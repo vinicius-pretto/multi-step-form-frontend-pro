@@ -1,3 +1,3 @@
 export const ReviewAndConfirm = () => {
-  return <div>ReviewAndConfirm</div>;
+  return <h2>Review and Confirm</h2>;
 };

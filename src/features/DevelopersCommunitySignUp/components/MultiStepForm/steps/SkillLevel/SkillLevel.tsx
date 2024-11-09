@@ -1,3 +1,3 @@
 export const SkillLevel = () => {
-  return <div>SkillLevel</div>;
+  return <h2>Skill Level</h2>;
 };
