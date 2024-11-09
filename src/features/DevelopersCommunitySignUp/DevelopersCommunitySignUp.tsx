@@ -8,28 +8,31 @@ import { MultiStepForm } from "./components/MultiStepForm";
 import { MultiStepFormProvider } from "./components/MultiStepForm/providers/MultiStepFormProvider";
 import { Steppers } from "./components/Steppers";
 import steps from "./components/Steppers/steps.json";
+import { DevelopersCommunitySignUpProvider } from "./providers/DevelopersCommunitySignUpProvider";
 
 export const DevelopersCommunitySignUp = () => {
   return (
-    <MultiStepFormProvider initialStep="personal-information" steps={steps}>
-      <div className={styles.container}>
-        <Header />
-        <main className={styles.main}>
-          <Card>
-            <Card.Header className="px-5">
-              <Steppers />
-            </Card.Header>
-            <Card.Body>
-              <MultiStepForm />
-            </Card.Body>
-            <Card.Actions>
-              <Button type="submit" form="personalInfo">
-                Next Step
-              </Button>
-            </Card.Actions>
-          </Card>
-        </main>
-      </div>
-    </MultiStepFormProvider>
+    <DevelopersCommunitySignUpProvider>
+      <MultiStepFormProvider initialStep="personal-information" steps={steps}>
+        <div className={styles.container}>
+          <Header />
+          <main className={styles.main}>
+            <Card>
+              <Card.Header className="px-5">
+                <Steppers />
+              </Card.Header>
+              <Card.Body>
+                <MultiStepForm />
+              </Card.Body>
+              <Card.Actions>
+                <Button type="submit" form="personalInfo">
+                  Next Step
+                </Button>
+              </Card.Actions>
+            </Card>
+          </main>
+        </div>
+      </MultiStepFormProvider>
+    </DevelopersCommunitySignUpProvider>
   );
 };

@@ -1,39 +1,42 @@
 import { Typography } from "@/components/core/Typography";
 import { Email } from "@/components/domain/Email";
-import { email } from "@/components/domain/Email/Email.schema";
 import { FullName } from "@/components/domain/FullName";
-import { fullName } from "@/components/domain/FullName/FullName.schema";
 import { Phone } from "@/components/domain/Phone";
-import { phone } from "@/components/domain/Phone/Phone.schema";
 import { PortifolioLink } from "@/components/domain/PortifolioLink";
-import { portifolioLink } from "@/components/domain/PortifolioLink/PortifolioLink.schema";
+import { useDevelopersCommunitySignUp } from "@/features/DevelopersCommunitySignUp/providers/DevelopersCommunitySignUpProvider";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, useForm } from "react-hook-form";
-import { z } from "zod";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useMultiStepForm } from "../../providers/MultiStepFormProvider";
 import styles from "./PersonalInformation.module.css";
-
-const personalInformationSchema = z.object({
-  fullName,
-  email,
-  phone,
-  portifolioLink,
-});
+import {
+  PersonalInfo,
+  personalInformationSchema,
+} from "./personalInformation.schema";
 
 export const PersonalInformation = () => {
   const { nextStep } = useMultiStepForm();
-  const formMethods = useForm({
+  const { storePersonalInfoFormFields, personalInfo } =
+    useDevelopersCommunitySignUp();
+
+  const formMethods = useForm<PersonalInfo>({
     mode: "onChange",
     shouldFocusError: true,
     resolver: zodResolver(personalInformationSchema),
+    defaultValues: {
+      fullName: personalInfo?.fullName || "",
+      email: personalInfo?.email || "",
+      phone: personalInfo?.phone || "",
+      portifolioLink: personalInfo?.portifolioLink || "",
+    },
   });
 
-  const onSubmit = (values: unknown) => {
-    const { error } = personalInformationSchema.safeParse(values);
+  const onSubmit: SubmitHandler<PersonalInfo> = (personalInfo) => {
+    const { error } = personalInformationSchema.safeParse(personalInfo);
     if (error) {
       return;
     }
     nextStep();
+    storePersonalInfoFormFields(personalInfo);
   };
 
   return (
