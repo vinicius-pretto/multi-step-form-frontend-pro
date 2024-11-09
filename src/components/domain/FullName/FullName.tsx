@@ -11,6 +11,8 @@ export const FullName = () => {
       name="fullName"
       control={control}
       render={({ field, fieldState }) => {
+        const value = field.value === undefined ? "" : field.value;
+
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
           event.target.value = capitalize(event.target.value);
           field.onChange(event);
@@ -26,7 +28,7 @@ export const FullName = () => {
             name={field.name}
             onChange={onChange}
             onBlur={field.onBlur}
-            value={field.value}
+            value={value}
             ref={field.ref}
             error={fieldState.error?.message}
           />

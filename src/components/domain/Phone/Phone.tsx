@@ -11,6 +11,8 @@ export const Phone = () => {
       name="phone"
       control={control}
       render={({ field, fieldState }) => {
+        const value = field.value === undefined ? "" : field.value;
+
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
           event.target.value = formatPhoneNumber(event.target.value);
           field.onChange(event);
@@ -23,7 +25,7 @@ export const Phone = () => {
             placeholder="(222) 222-2222"
             required
             name={field.name}
-            value={field.value}
+            value={value}
             onChange={onChange}
             onBlur={field.onBlur}
             ref={field.ref}

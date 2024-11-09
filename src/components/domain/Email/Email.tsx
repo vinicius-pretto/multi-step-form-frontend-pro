@@ -8,20 +8,24 @@ export const Email = () => {
     <Controller
       name="email"
       control={control}
-      render={({ field, fieldState }) => (
-        <Input
-          type="email"
-          placeholder="john.doe@domain.com"
-          label="Email Address"
-          name={field.name}
-          value={field.value}
-          onBlur={field.onBlur}
-          onChange={field.onChange}
-          required
-          ref={field.ref}
-          error={fieldState.error?.message}
-        />
-      )}
+      render={({ field, fieldState }) => {
+        const value = field.value === undefined ? "" : field.value;
+
+        return (
+          <Input
+            type="email"
+            placeholder="john.doe@domain.com"
+            label="Email Address"
+            name={field.name}
+            value={value}
+            onBlur={field.onBlur}
+            onChange={field.onChange}
+            required
+            ref={field.ref}
+            error={fieldState.error?.message}
+          />
+        );
+      }}
     />
   );
 };
