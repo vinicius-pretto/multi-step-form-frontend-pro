@@ -29,10 +29,8 @@ export const PersonalInformation = () => {
   });
 
   const onSubmit = (values: unknown) => {
-    console.log(values);
-    console.log("isValid", formMethods.formState.isValid);
-    console.log("errors", formMethods.formState.errors);
-    if (!formMethods.formState.isValid) {
+    const { error } = personalInformationSchema.safeParse(values);
+    if (error) {
       return;
     }
     nextStep();
