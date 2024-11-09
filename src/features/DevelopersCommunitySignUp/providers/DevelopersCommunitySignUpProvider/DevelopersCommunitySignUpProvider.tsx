@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { PersonalInfo } from "../../components/MultiStepForm/steps/PersonalInformation/personalInformation.schema";
+import { PersonalInfo } from "../../components/MultiStepForm/components/PersonalInformation/personalInformation.schema";
 
 export type DevelopersCommunitySignUpContextProps = {
   personalInfo?: PersonalInfo;

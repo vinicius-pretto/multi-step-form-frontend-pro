@@ -1,8 +1,8 @@
+import { ChallengePreference } from "./components/ChallengePreference";
+import { PersonalInformation } from "./components/PersonalInformation";
+import { ReviewAndConfirm } from "./components/ReviewAndConfirm";
+import { SkillLevel } from "./components/SkillLevel";
 import { useMultiStepForm } from "./providers/MultiStepFormProvider";
-import { ChallengePreference } from "./steps/ChallengePreference";
-import { PersonalInformation } from "./steps/PersonalInformation";
-import { ReviewAndConfirm } from "./steps/ReviewAndConfirm";
-import { SkillLevel } from "./steps/SkillLevel";
 
 export const MultiStepForm = () => {
   const { step } = useMultiStepForm();
