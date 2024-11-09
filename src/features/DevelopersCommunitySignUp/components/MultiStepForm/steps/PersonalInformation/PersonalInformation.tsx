@@ -3,41 +3,12 @@ import { Email } from "@/components/domain/Email";
 import { FullName } from "@/components/domain/FullName";
 import { Phone } from "@/components/domain/Phone";
 import { PortifolioLink } from "@/components/domain/PortifolioLink";
-import { useDevelopersCommunitySignUp } from "@/features/DevelopersCommunitySignUp/providers/DevelopersCommunitySignUpProvider";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { useMultiStepForm } from "../../providers/MultiStepFormProvider";
+import { FormProvider } from "react-hook-form";
+import { usePersonalInfoForm } from "./hooks/usePersonalInfoForm";
 import styles from "./PersonalInformation.module.css";
-import {
-  PersonalInfo,
-  personalInformationSchema,
-} from "./personalInformation.schema";
 
 export const PersonalInformation = () => {
-  const { nextStep } = useMultiStepForm();
-  const { storePersonalInfoFormFields, personalInfo } =
-    useDevelopersCommunitySignUp();
-
-  const formMethods = useForm<PersonalInfo>({
-    mode: "onChange",
-    shouldFocusError: true,
-    resolver: zodResolver(personalInformationSchema),
-    defaultValues: {
-      fullName: personalInfo?.fullName || "",
-      email: personalInfo?.email || "",
-      phone: personalInfo?.phone || "",
-      portifolioLink: personalInfo?.portifolioLink || "",
-    },
-  });
-
-  const onSubmit: SubmitHandler<PersonalInfo> = (personalInfo) => {
-    const { error } = personalInformationSchema.safeParse(personalInfo);
-    if (error) {
-      return;
-    }
-    nextStep();
-    storePersonalInfoFormFields(personalInfo);
-  };
+  const { formMethods, handleSubmitPersonalInfo } = usePersonalInfoForm();
 
   return (
     <>
@@ -54,11 +25,7 @@ export const PersonalInformation = () => {
       </Typography>
 
       <FormProvider {...formMethods}>
-        <form
-          id="personalInfo"
-          noValidate
-          onSubmit={formMethods.handleSubmit(onSubmit)}
-        >
+        <form id="personalInfo" noValidate onSubmit={handleSubmitPersonalInfo}>
           <div className="formGroup">
             <FullName />
             <Email />
