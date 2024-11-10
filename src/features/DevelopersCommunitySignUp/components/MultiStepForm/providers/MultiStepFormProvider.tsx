@@ -4,7 +4,9 @@ export type MultiStepFormContextProps = {
   step: string;
   changeStep: (step: string) => void;
   nextStep: () => void;
+  previousStep: () => void;
   steps: Step[];
+  isFirstStep: boolean;
 };
 
 const MultiStepFormContext = createContext<
@@ -67,9 +69,27 @@ export const MultiStepFormProvider = ({
     changeStep(nextStep.id);
   };
 
+  const previousStep = () => {
+    const currentStepIndex = steps.findIndex((s) => s.id === step);
+    const previousStepIndex = currentStepIndex - 1;
+
+    const isFirstStep = previousStepIndex < 0;
+    if (isFirstStep) {
+      return;
+    }
+
+    const previousStep = steps[previousStepIndex];
+    if (!previousStep) {
+      return;
+    }
+    changeStep(previousStep.id);
+  };
+
+  const isFirstStep = step === "personal-information";
+
   return (
     <MultiStepFormContext.Provider
-      value={{ changeStep, nextStep, step, steps }}
+      value={{ changeStep, previousStep, nextStep, step, steps, isFirstStep }}
     >
       {children}
     </MultiStepFormContext.Provider>
