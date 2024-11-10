@@ -25,7 +25,11 @@ export const PersonalInformation = () => {
       </Typography>
 
       <FormProvider {...formMethods}>
-        <form id="personalInfo" noValidate onSubmit={handleSubmitPersonalInfo}>
+        <form
+          id="personal-information"
+          noValidate
+          onSubmit={handleSubmitPersonalInfo}
+        >
           <div className="formGroup">
             <FullName />
             <Email />

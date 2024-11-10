@@ -3,7 +3,9 @@ import { PersonalInfo } from "../../components/MultiStepForm/components/Personal
 
 export type DevelopersCommunitySignUpContextProps = {
   personalInfo?: PersonalInfo;
+  skillLevel?: string;
   storePersonalInfoFormFields: (personalInfo: PersonalInfo) => void;
+  storeSkillLevelFormFields: (skillLevel: string) => void;
 };
 
 const DevelopersCommunitySignUpContext = createContext<
@@ -20,16 +22,23 @@ export const DevelopersCommunitySignUpProvider = ({
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>(
     {} as PersonalInfo,
   );
+  const [skillLevel, setSkillLevel] = useState<string>("");
 
   const storePersonalInfoFormFields = (personalInfoValues: PersonalInfo) => {
     setPersonalInfo(personalInfoValues);
+  };
+
+  const storeSkillLevelFormFields = (skillLevel: string) => {
+    setSkillLevel(skillLevel);
   };
 
   return (
     <DevelopersCommunitySignUpContext.Provider
       value={{
         storePersonalInfoFormFields,
+        storeSkillLevelFormFields,
         personalInfo,
+        skillLevel,
       }}
     >
       {children}
