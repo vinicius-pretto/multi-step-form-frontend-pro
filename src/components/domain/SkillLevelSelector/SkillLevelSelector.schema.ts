@@ -6,3 +6,5 @@ export const skillLevel = z.enum([
   "advanced",
   "expert",
 ]);
+
+export type TSkillLevel = z.infer<typeof skillLevel>;

@@ -1,11 +1,12 @@
+import { TSkillLevel } from "@/components/domain/SkillLevelSelector/SkillLevelSelector.schema";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { PersonalInfo } from "../../components/MultiStepForm/components/PersonalInformation/personalInformation.schema";
 
 export type DevelopersCommunitySignUpContextProps = {
   personalInfo?: PersonalInfo;
-  skillLevel?: string;
+  skillLevel?: TSkillLevel;
   storePersonalInfoFormFields: (personalInfo: PersonalInfo) => void;
-  storeSkillLevelFormFields: (skillLevel: string) => void;
+  storeSkillLevelFormFields: (skillLevel: TSkillLevel) => void;
 };
 
 const DevelopersCommunitySignUpContext = createContext<
@@ -22,13 +23,13 @@ export const DevelopersCommunitySignUpProvider = ({
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>(
     {} as PersonalInfo,
   );
-  const [skillLevel, setSkillLevel] = useState<string>("");
+  const [skillLevel, setSkillLevel] = useState<TSkillLevel | undefined>();
 
   const storePersonalInfoFormFields = (personalInfoValues: PersonalInfo) => {
     setPersonalInfo(personalInfoValues);
   };
 
-  const storeSkillLevelFormFields = (skillLevel: string) => {
+  const storeSkillLevelFormFields = (skillLevel: TSkillLevel) => {
     setSkillLevel(skillLevel);
   };
 

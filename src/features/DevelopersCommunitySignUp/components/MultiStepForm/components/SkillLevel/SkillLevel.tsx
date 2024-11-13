@@ -1,33 +1,34 @@
 import { Typography } from "@/components/core/Typography";
 import { SkillLevelSelector } from "@/components/domain/SkillLevelSelector";
-import { skillLevel } from "@/components/domain/SkillLevelSelector/SkillLevelSelector.schema";
 import { useDevelopersCommunitySignUp } from "@/features/DevelopersCommunitySignUp/providers/DevelopersCommunitySignUpProvider";
-import { ChangeEvent } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useMultiStepForm } from "../../providers/MultiStepFormProvider";
 import { Description } from "../Description";
+import { SkillLevelSchema, skillLevelSchema } from "./SkillLevel.schema";
 
 export const SkillLevel = () => {
   const { nextStep } = useMultiStepForm();
-  const { storeSkillLevelFormFields } = useDevelopersCommunitySignUp();
+  const { storeSkillLevelFormFields, skillLevel } =
+    useDevelopersCommunitySignUp();
 
-  const onSubmit = (event: ChangeEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const formMethods = useForm<SkillLevelSchema>({
+    mode: "onChange",
+    shouldFocusError: false,
+    resolver: zodResolver(skillLevelSchema),
+    defaultValues: {
+      skillLevel,
+    },
+  });
 
-    if (event.nativeEvent.target === null) {
-      return;
-    }
+  const onSubmit: SubmitHandler<SkillLevelSchema> = (formValues) => {
+    const result = skillLevelSchema.safeParse(formValues);
 
-    const form = event.nativeEvent.target as HTMLFormElement;
-    const skillLevelElement = form.elements.namedItem(
-      "skillLevel",
-    ) as HTMLInputElement;
-    const result = skillLevel.safeParse(skillLevelElement.value);
-
-    if (result.error) {
+    if (!result.success) {
       return;
     }
     nextStep();
-    storeSkillLevelFormFields(skillLevelElement.value);
+    storeSkillLevelFormFields(formValues.skillLevel);
   };
 
   return (
@@ -38,9 +39,13 @@ export const SkillLevel = () => {
       <Description>
         Please tell us about your skill level in frontend development.
       </Description>
-      <form onSubmit={onSubmit} id="skill-level" name="skillLevel">
-        <SkillLevelSelector />
-      </form>
+      <FormProvider {...formMethods}>
+        <form onSubmit={formMethods.handleSubmit(onSubmit)} id="skill-level">
+          <SkillLevelSelector
+            error={Boolean(formMethods.formState.errors.skillLevel)}
+          />
+        </form>
+      </FormProvider>
     </>
   );
 };
