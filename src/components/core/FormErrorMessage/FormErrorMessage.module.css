@@ -1,0 +1,6 @@
+.formErrorMessage {
+  margin-block-start: var(--spacing-1);
+  margin-block-end: 0;
+  font-size: var(--font-size-1);
+  color: var(--color-red-600);
+}
