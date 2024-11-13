@@ -24,5 +24,12 @@ test.describe("Join Developers Community", () => {
     await page
       .getByRole("heading", { name: "Skill Level", level: 2 })
       .isVisible();
+
+    await page.getByRole("radio", { name: "Intermediate" }).click();
+    await page.getByRole("button", { name: "Next Step" }).click();
+
+    await page
+      .getByRole("heading", { name: "Challenge Preference", level: 2 })
+      .isVisible();
   });
 });
