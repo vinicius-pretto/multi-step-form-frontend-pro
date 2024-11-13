@@ -29,8 +29,8 @@
 }
 
 .label:hover {
-  background-color: rgb(from var(--color-primary) r g b / 0.1);
-  border-color: rgb(from var(--color-primary) r g b / 0.1);
+  background-color: rgb(from var(--color-gray-100) r g b / 0.4);
+  border-color: rgb(from var(--color-gray-100) r g b / 0.4);
 }
 
 .label:has(input[type="radio"]:focus) {
