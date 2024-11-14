@@ -31,5 +31,13 @@ test.describe("Join Developers Community", () => {
     await page
       .getByRole("heading", { name: "Challenge Preference", level: 2 })
       .isVisible();
+
+    await page.getByRole("checkbox", { name: "React.js" }).check();
+    await page.getByRole("checkbox", { name: "Vue.js" }).check();
+    await page.getByRole("button", { name: "Next Step" }).click();
+
+    await page
+      .getByRole("heading", { name: "Review and Confirm", level: 2 })
+      .isVisible();
   });
 });

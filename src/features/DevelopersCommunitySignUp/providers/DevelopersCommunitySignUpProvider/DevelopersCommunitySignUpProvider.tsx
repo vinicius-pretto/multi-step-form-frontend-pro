@@ -1,12 +1,17 @@
 import { TSkillLevel } from "@/components/domain/SkillLevelSelector/SkillLevelSelector.schema";
 import { createContext, ReactNode, useContext, useState } from "react";
+import { TChallengePreference } from "../../components/MultiStepForm/components/ChallengePreference/components/ChallengePreferenceSelector/ChallengePreferenceSelector.schema";
 import { PersonalInfo } from "../../components/MultiStepForm/components/PersonalInformation/personalInformation.schema";
 
 export type DevelopersCommunitySignUpContextProps = {
   personalInfo?: PersonalInfo;
   skillLevel?: TSkillLevel;
+  challengePreference?: TChallengePreference;
   storePersonalInfoFormFields: (personalInfo: PersonalInfo) => void;
   storeSkillLevelFormFields: (skillLevel: TSkillLevel) => void;
+  storeChallengePreferenceFormFields: (
+    challengePreference: TChallengePreference,
+  ) => void;
 };
 
 const DevelopersCommunitySignUpContext = createContext<
@@ -24,6 +29,9 @@ export const DevelopersCommunitySignUpProvider = ({
     {} as PersonalInfo,
   );
   const [skillLevel, setSkillLevel] = useState<TSkillLevel | undefined>();
+  const [challengePreference, setChallengePreference] = useState<
+    TChallengePreference | undefined
+  >();
 
   const storePersonalInfoFormFields = (personalInfoValues: PersonalInfo) => {
     setPersonalInfo(personalInfoValues);
@@ -33,13 +41,21 @@ export const DevelopersCommunitySignUpProvider = ({
     setSkillLevel(skillLevel);
   };
 
+  const storeChallengePreferenceFormFields = (
+    challengePreference: TChallengePreference,
+  ) => {
+    setChallengePreference(challengePreference);
+  };
+
   return (
     <DevelopersCommunitySignUpContext.Provider
       value={{
         storePersonalInfoFormFields,
         storeSkillLevelFormFields,
+        storeChallengePreferenceFormFields,
         personalInfo,
         skillLevel,
+        challengePreference,
       }}
     >
       {children}

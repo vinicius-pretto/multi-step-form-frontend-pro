@@ -9,25 +9,29 @@ export const ChallengePreferenceSelector = () => {
       <legend id="challengePreferenceTitle" hidden>
         Choose your challenge preference
       </legend>
-      {challenges.map((challenge) => (
-        <Controller
-          key={challenge.id}
-          name={challenge.id}
-          control={control}
-          render={({ field }) => (
-            <label>
-              {challenge.name}
-              <input
-                type="checkbox"
-                name={field.name}
-                onBlur={field.onBlur}
-                onChange={field.onChange}
-                defaultChecked={field.value === field.name}
-              />
-            </label>
-          )}
-        />
-      ))}
+      {challenges.map((challenge) => {
+        return (
+          <Controller
+            key={challenge.id}
+            name={challenge.id}
+            control={control}
+            render={({ field }) => {
+              return (
+                <label>
+                  {challenge.name}
+                  <input
+                    type="checkbox"
+                    name={field.name}
+                    onBlur={field.onBlur}
+                    onChange={field.onChange}
+                    defaultChecked={field.value === true}
+                  />
+                </label>
+              );
+            }}
+          />
+        );
+      })}
     </fieldset>
   );
 };
