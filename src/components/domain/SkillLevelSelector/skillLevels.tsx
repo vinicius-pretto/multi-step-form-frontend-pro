@@ -5,22 +5,22 @@ import { Trophy } from "@/components/icons/Trophy";
 
 export const skillLevels = [
   {
-    id: "beginner",
+    id: "Beginner",
     label: "Beginner",
     icon: <Plant />,
   },
   {
-    id: "intermediate",
+    id: "Intermediate",
     label: "Intermediate",
     icon: <Compass />,
   },
   {
-    id: "advanced",
+    id: "Advanced",
     label: "Advanced",
     icon: <RocketLaunch />,
   },
   {
-    id: "expert",
+    id: "Expert",
     label: "Expert",
     icon: <Trophy />,
   },

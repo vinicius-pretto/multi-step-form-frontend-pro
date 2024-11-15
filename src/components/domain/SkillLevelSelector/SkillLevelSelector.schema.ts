@@ -1,10 +1,10 @@
 import { z } from "zod";
 
 export const skillLevel = z.enum([
-  "beginner",
-  "intermediate",
-  "advanced",
-  "expert",
+  "Beginner",
+  "Intermediate",
+  "Advanced",
+  "Expert",
 ]);
 
 export type TSkillLevel = z.infer<typeof skillLevel>;

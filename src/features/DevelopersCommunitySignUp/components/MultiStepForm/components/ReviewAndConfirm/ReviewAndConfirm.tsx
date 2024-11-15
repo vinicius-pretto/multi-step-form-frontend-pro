@@ -11,6 +11,13 @@ const displayInfo = new Map([
   ["challengePreference", "Challenge Preference"],
 ]);
 
+const displayValue = new Map([
+  ["htmlcssjs", "HTML/CSS/JS"],
+  ["reactjs", "React.js"],
+  ["angularjs", "AngularJs"],
+  ["vuejs", "Vue.js"],
+]);
+
 export const ReviewAndConfirm = () => {
   const { personalInfo, skillLevel, challengePreference } =
     useDevelopersCommunitySignUp();
@@ -19,9 +26,13 @@ export const ReviewAndConfirm = () => {
     return null;
   }
 
-  const challengePreferenceString = challengePreference
-    ? Object.keys(challengePreference).join(", ")
-    : "";
+  const challengePreferenceString = Object.entries(challengePreference || {})
+    .map(([key, value]) => {
+      return value === true ? displayValue.get(key) : null;
+    })
+    .filter((val) => val !== null)
+    .sort()
+    .join(", ");
 
   const reviewInformation = {
     ...personalInfo,
@@ -40,7 +51,7 @@ export const ReviewAndConfirm = () => {
       <dl>
         {Object.entries(reviewInformation).map(([key, value]) => (
           <div key={key}>
-            <dt>{displayInfo.has(key) ? displayInfo.get(key) : null}</dt>
+            <dt>{displayInfo.has(key) ? displayInfo.get(key) : key}</dt>
             <dd>{value}</dd>
           </div>
         ))}
