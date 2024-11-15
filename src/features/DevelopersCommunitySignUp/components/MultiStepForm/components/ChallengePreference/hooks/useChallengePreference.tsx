@@ -1,4 +1,5 @@
 import { useDevelopersCommunitySignUp } from "@/features/DevelopersCommunitySignUp/providers/DevelopersCommunitySignUpProvider";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useMultiStepForm } from "../../../providers/MultiStepFormProvider";
 import {
@@ -15,6 +16,7 @@ export const useChallengePreference = () => {
     mode: "onBlur",
     shouldFocusError: false,
     defaultValues: challengePreference,
+    resolver: zodResolver(challengePreferenceSchema),
   });
 
   const onSubmit: SubmitHandler<TChallengePreference> = (formValues) => {
