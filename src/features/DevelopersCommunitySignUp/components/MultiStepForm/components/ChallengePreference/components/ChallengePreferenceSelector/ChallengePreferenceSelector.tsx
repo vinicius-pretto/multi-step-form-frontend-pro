@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from "react-hook-form";
+import styles from "./ChallengePreferenceSelector.module.css";
 import challenges from "./challenges.json";
 
 export const ChallengePreferenceSelector = () => {
@@ -6,7 +7,10 @@ export const ChallengePreferenceSelector = () => {
 
   return (
     <>
-      <fieldset aria-labelledby="challengePreferenceTitle">
+      <fieldset
+        className={styles.fieldset}
+        aria-labelledby="challengePreferenceTitle"
+      >
         <legend id="challengePreferenceTitle" hidden>
           Choose your challenge preference
         </legend>
@@ -16,18 +20,18 @@ export const ChallengePreferenceSelector = () => {
               key={challenge.id}
               name={challenge.id}
               control={control}
-              render={({ field, fieldState }) => {
+              render={({ field }) => {
                 return (
-                  <label>
-                    {challenge.name}
+                  <label className={styles.label}>
                     <input
                       type="checkbox"
+                      className={styles.input}
                       name={field.name}
                       onBlur={field.onBlur}
                       onChange={field.onChange}
                       defaultChecked={field.value === true}
                     />
-                    <span>{fieldState.error?.message}</span>
+                    {challenge.name}
                   </label>
                 );
               }}

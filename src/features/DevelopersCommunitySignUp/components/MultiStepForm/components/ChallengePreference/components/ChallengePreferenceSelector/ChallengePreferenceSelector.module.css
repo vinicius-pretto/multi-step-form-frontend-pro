@@ -1,0 +1,42 @@
+.fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.5rem;
+  row-gap: 1.5rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-block-end: 1rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding-block: var(--spacing-5);
+  padding-inline: 1.125rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-100);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 200ms ease
+}
+
+.label:hover {
+  background-color: rgb(from var(--color-gray-100) r g b / 0.4);
+  border-color: rgb(from var(--color-gray-100) r g b / 0.4);
+}
+
+.label:has(input[type="checkbox"]:focus) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: var(--outline-offset);
+}
+
+.input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.input[type="checkbox"]:focus {
+  outline-color: var(--color-primary);
+}
