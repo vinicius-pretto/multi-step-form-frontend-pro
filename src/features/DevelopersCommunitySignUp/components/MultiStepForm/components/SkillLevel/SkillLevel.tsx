@@ -9,7 +9,7 @@ export const SkillLevel = () => {
 
   return (
     <>
-      <Typography htmlTag="h1" size="lg" weight="medium">
+      <Typography htmlTag="h2" size="lg" weight="medium">
         Skill Level
       </Typography>
       <Description>
