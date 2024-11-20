@@ -1,4 +1,6 @@
 import { useDevelopersCommunitySignUp } from "@/features/DevelopersCommunitySignUp/providers/DevelopersCommunitySignUpProvider";
+import { useRouter } from "next/navigation";
+import { ChangeEvent } from "react";
 
 const displayInfo = new Map([
   ["fullName", "Full Name"],
@@ -17,6 +19,7 @@ const displayValue = new Map([
 ]);
 
 export const useReviewAndConfirm = () => {
+  const router = useRouter();
   const { personalInfo, skillLevel, challengePreference } =
     useDevelopersCommunitySignUp();
 
@@ -34,8 +37,15 @@ export const useReviewAndConfirm = () => {
     challengePreference: challengePreferenceString,
   };
 
+  const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    router.push("/congratulations");
+  };
+
   return {
     displayInfo,
     reviewInformation,
+    handleSubmit,
   };
 };

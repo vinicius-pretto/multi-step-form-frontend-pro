@@ -4,7 +4,8 @@ import { useReviewAndConfirm } from "./hooks/useReviewAndConfirm";
 import styles from "./ReviewAndConfirm.module.css";
 
 export const ReviewAndConfirm = () => {
-  const { reviewInformation, displayInfo } = useReviewAndConfirm();
+  const { reviewInformation, displayInfo, handleSubmit } =
+    useReviewAndConfirm();
 
   return (
     <>
@@ -14,16 +15,18 @@ export const ReviewAndConfirm = () => {
       <Description>
         Please review your information to make sure everything is accurate.
       </Description>
-      <dl className={styles.infoList}>
-        {Object.entries(reviewInformation).map(([key, value]) => (
-          <div className={styles.infoBox} key={key}>
-            <dt className={styles.definitionTerm}>
-              {displayInfo.has(key) ? displayInfo.get(key) : key}
-            </dt>
-            <dd className={styles.definitionData}>{value}</dd>
-          </div>
-        ))}
-      </dl>
+      <form id="review-and-confirm" onSubmit={handleSubmit}>
+        <dl className={styles.infoList}>
+          {Object.entries(reviewInformation).map(([key, value]) => (
+            <div className={styles.infoBox} key={key}>
+              <dt className={styles.definitionTerm}>
+                {displayInfo.has(key) ? displayInfo.get(key) : key}
+              </dt>
+              <dd className={styles.definitionData}>{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </form>
     </>
   );
 };
